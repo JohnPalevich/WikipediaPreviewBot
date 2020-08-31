@@ -49,7 +49,7 @@ while True:
             print('Subject: ', subject)
 
             try:
-                summary = wikipedia.summary(subject, sentences=3)
+                summary = min(wikipedia.summary(subject, sentences=3), wikipedia.summary(subject))
                 reply_text = 'Here is the wikipedia summary of ' + subject + ':' + '\n' \
                              + '>' + summary + '\n' + '\n' \
                              + '^beep ^beep ^boop, ^I ^am ^a ^bot, ^please ^message' \
