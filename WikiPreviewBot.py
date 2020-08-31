@@ -33,7 +33,7 @@ else:
 while True:
     for post in subreddit.new(limit=5):
         if post.id not in posts_replied_to:
-            if (post.selftext == '' and 'wikipedia' in post.url):
+            if post.selftext == '' and 'wikipedia' in post.url:
                 url = post.url
                 print('Bot replying to: ', post.title)
             elif 'wikipedia' in post.selftext.lower():
@@ -50,8 +50,8 @@ while True:
 
             try:
                 summary = min(wikipedia.summary(subject, sentences=3), wikipedia.summary(subject))
-                reply_text = 'Here is the wikipedia summary of ' + subject + ':' + '\n' \
-                             + '>' + summary + '\n' + '\n' \
+                reply_text = 'Here is the wikipedia summary of [' + subject + '](' + url + '): \n' \
+                             + '>' + summary + '\n\n' \
                              + '^beep ^beep ^boop, ^I ^am ^a ^bot, ^please ^message' \
                                ' ^me ^with ^any ^concerns ^and ^I ^will ^try ^to ^fix ^them!'
                 post.reply(reply_text)
